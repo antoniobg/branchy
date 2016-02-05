@@ -33,7 +33,7 @@ module Branchy
       private
 
       def self.branch_name
-        name = exec_or_raise('git rev-parse --abbrev-ref HEAD')
+        name = exec_or_raise('git symbolic-ref --short -q HEAD')
         name == 'HEAD'.freeze ? nil : name
       end
 
